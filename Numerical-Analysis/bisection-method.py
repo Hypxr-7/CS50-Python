@@ -25,8 +25,6 @@ def bisection_method(f, a, b, tol = 0.5, max_iterations = 100):
             b = c
         elif f(a)*f(c) > 0:
             a = c
-        else:
-            return
         
         if i != 0:
             if abs((previous_c - c) / previous_c)*100 <= tol:
