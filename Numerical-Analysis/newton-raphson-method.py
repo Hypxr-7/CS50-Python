@@ -1,7 +1,7 @@
 import math
 
 def main():
-    newton_raphson_method(f, f_der, 0, 1)
+    newton_raphson_method(f, f_der, 0)
 
 
 def f(x):
