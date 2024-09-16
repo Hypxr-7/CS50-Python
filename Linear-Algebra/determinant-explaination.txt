@@ -1,0 +1,32 @@
+Tested using Python 3.12.3
+
+The source file contains two functions determinant() and test_determinant().
+
+determinant() is makes use of recursion to find the determinant of the given matrix.
+
+Base cases:
+1 - rows = columns = 1 in which case the determinant is simply the only element
+2 - rows = columns = 2 in which case the determinant is given by (a11)(a22) - (a12)(a21)
+
+Recursive Step:
+For each of the columns calculate the minor matrix.
+This is obtained by using list comprehension:
+[row[:c] + row[c+1:] for row in matrix[1:]]
+
+for row in matrix[1:] skips the first row, and
+row[:c] + row[c+1:] concatenates the row before and after c, in other words removing element in c position in each row
+
+Then the co-factor is calculated using:
+((-1) ** c) * matrix[0][c] * determinant(minor_matrix)
+This definition can be found on page 87 of Linear Algebra With Applications Eighth Edition Steven J. Leon 
+
+The co-factors of the current matrix and the resulting minor matrix are all added up to give the determinant
+
+test_determinant() tests the above function.
+Tests:
+1x1 matrix
+2x2 matrix
+3x3 matrix
+4x4 matrix
+non-square matrix
+invalid matrix type
