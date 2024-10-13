@@ -17,11 +17,14 @@ def false_position_method(f, a, b, tol = 0.5, max_iterations = 100):
 
     previous_c = 0
     for i in range(max_iterations):
-        c = a - ((b - a) * f(a)) / (f(b) - f(a))
+        c = (b*f(a) - a*f(b)) / (f(a) - f(b))
 
         print(f"{i + 1:<10} {a:<15.6f} {b:<15.6f} {c:<15.6f}")
         
-        a = c
+        if f(a)*f(c) < 0:
+            b = c
+        else:
+            a = c
         
         if i != 0:
             if abs((previous_c - c) / previous_c)*100 <= tol:
