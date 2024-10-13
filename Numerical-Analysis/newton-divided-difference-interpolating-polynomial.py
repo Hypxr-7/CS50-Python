@@ -10,10 +10,10 @@ offset: extra portion of the graph to print
 
 def interpolate(dp, x):
     n = len(dp['x'])
-    fdd = []
 
     # Initialize fdd with the first column of divided differences
-    fdd.append([(dp['f'][i+1] - dp['f'][i]) / (dp['x'][i+1] - dp['x'][i]) for i in range(n-1)])
+    fdd = [[(dp['f'][i + 1] - dp['f'][i]) / (dp['x'][i + 1] - dp['x'][i]) for i in range(n - 1)]]
+
 
     # Compute the rest of the divided difference table
     for j in range(1, n-1):
