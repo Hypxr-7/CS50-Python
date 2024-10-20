@@ -1,1 +1,1 @@
-# Python Projects
+# CS50 Python
